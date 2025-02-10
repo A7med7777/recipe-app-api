@@ -12,9 +12,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         """Entrypoint for command"""
-
         self.stdout.write("Waiting for database...")
-
         db_ready = False
 
         while db_ready is False:
