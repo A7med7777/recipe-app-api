@@ -20,7 +20,7 @@ from drf_spectacular.views import (
 )
 
 from django.contrib import admin
-from django.urls import path
+from django.urls import include, path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -33,8 +33,10 @@ urlpatterns = [
     ),
 
     path(
-        'api/schema/redoc/',
+        'api/redoc/',
         SpectacularRedocView.as_view(url_name='schema'),
         name='redoc'
     ),
+
+    path('api/user/', include("user.urls")),
 ]
